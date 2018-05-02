@@ -89,9 +89,9 @@
     content: ''
   when: ansible_os_family == 'RedHat'
 
-- name: Delete Default Sysconfig File
-  become: yes
-  file: dest="{{ sysd_script }}" state=absent
+#- name: Delete Default Sysconfig File
+#  become: yes
+#  file: dest="{{ sysd_script }}" state=absent
 
 - name: Delete Default Configuration File
   become: yes
