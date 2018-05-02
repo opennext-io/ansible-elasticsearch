@@ -45,6 +45,9 @@
   notify: restart elasticsearch
 
 #Copy the systemd specific file if systemd is installed
+
+- name: Debug message
+  debug: msg="instance_sysd_script = {{instance_sysd_script}}"
 - name: Copy Systemd File for Instance
   become: yes
   template: src=systemd/elasticsearch.j2 dest={{instance_sysd_script}} mode=0644 force=yes
