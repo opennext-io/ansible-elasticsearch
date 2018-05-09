@@ -70,11 +70,11 @@
 
 #For directories we also use the {{inventory_hostname}}-{{ es_instance_name }} - this helps if we have a shared SAN.
 
-- name: set fact instance_suffix
-  set_fact: instance_suffix={{inventory_hostname}}-{{ es_instance_name }}
+#- name: set fact instance_suffix
+#  set_fact: instance_suffix={{inventory_hostname}}-{{ es_instance_name }}
 - name: set fact pid_dir
   set_fact: pid_dir={{ es_pid_dir }}
 - name: set fact log_dir
   set_fact: log_dir={{ es_log_dir }}
-- name: set fact log_dir
-  set_fact: data_dirs={{ es_data_dirs | append_to_list('/'+instance_suffix) }}
+- name: set fact data_dirs
+  set_fact: data_dirs={{ es_data_dirs }}
