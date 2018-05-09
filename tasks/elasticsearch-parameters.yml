@@ -43,13 +43,14 @@
   set_fact: instance_default_file={{default_file | dirname}}/{{es_instance_name}}_{{default_file | basename}}
 - name: set fact instance_init_script
   set_fact: instance_init_script={{init_script}}
+#- name: set fact conf_dir
+#  set_fact: conf_dir={{ es_conf_dir }}/{{es_instance_name}}
 - name: set fact conf_dir
-  set_fact: conf_dir={{ es_conf_dir }}/{{es_instance_name}}
+  set_fact: conf_dir={{ es_conf_dir }}
 - name: set fact m_lock_enabled
   set_fact: m_lock_enabled={{ es_config['bootstrap.memory_lock'] is defined and es_config['bootstrap.memory_lock'] == True }}
 
 #TODO - if transport.host is not local maybe error on boostrap checks
-
 
 #Use systemd for the following distributions:
 #Ubuntu 15 and up
